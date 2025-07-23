@@ -1,0 +1,330 @@
+/* Estilos gerais */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Alterado para alinhar à esquerda */
+  align-items: center;
+  background: #000 url('/images/background.png') no-repeat center center fixed; /* Adicione sua URL de imagem aqui */
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Container principal */
+.container {
+  width: 500px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  margin-left: 50px; /* Posiciona o container à esquerda */
+  margin-right: auto; /* Mantém alinhamento à esquerda */
+}
+
+/* Estilos para o cabeçalho */
+.header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, #ff4d4d, #00ffd5);
+  margin: 10px 0;
+  opacity: 0.7;
+}
+
+.divider-small {
+  height: 1px;
+  background: linear-gradient(90deg, #ff4d4d, #00ffd5);
+  margin: 8px 0;
+  opacity: 0.5;
+  width: 80%;
+}
+
+h1 {
+  color: #ff4d4d;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.2em;
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+/* Estilos para texto temático */
+.fire-text {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.ice-text {
+  color: #00ffd5;
+  font-weight: bold;
+}
+
+.description {
+  color: #ccc;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Grupo de entrada */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.input-group input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
+}
+
+/* Estilos para a dica do input */
+.input-hint {
+  font-size: 0.8em;
+  color: #aaa;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.input-hint i {
+  margin-right: 5px;
+}
+
+/* Grupo de botões */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+/* Estilo base para ambos os botões */
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Ícones nos botões */
+.glow-on-hover i {
+  margin-right: 8px;
+}
+
+/* Camada de fundo */
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* Efeitos ativos */
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+/* BOTÃO ANALISAR - EFEITO FOGO */
+#analyzeBtn.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #ffd700, #b8b814, #ff4700, #ffbd2c, #e61919, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#analyzeBtn.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+/* BOTÃO RETORNAR - EFEITO GELO */
+#resetBtn.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #002bff, #00ffd5, #00ffff, #f5f5f5, #b8cad4, #00ffff, #00ffd5, #002bff, #f5f5f5);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#resetBtn.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+/* ANIMAÇÃO */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Estilos para os cálculos */
+.calculation {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-family: monospace;
+  border-left: 3px solid #6495ed;
+}
+
+.success {
+  color: #48ff00;
+  font-weight: bold;
+}
+
+.error {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+/* Estilos do resultado */
+.result-container {
+  margin-top: 20px;
+}
+
+.result-header {
+  text-align: center;
+}
+
+.result-container h2 {
+  color: #6495ed;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.result-output {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 50px;
+  color: #fff;
+  line-height: 1.6;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Placeholder do resultado */
+.placeholder {
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+}
+
+.placeholder i {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.result-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.result-output::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.result-output::-webkit-scrollbar-thumb {
+  background: #6495ed;
+  border-radius: 4px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 20px auto; /* Centraliza em telas menores */
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .glow-on-hover {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .description {
+    font-size: 0.9em;
+  }
+
+  .glow-on-hover {
+    font-size: 14px;
+  }
+
+  .glow-on-hover i {
+    margin-right: 5px;
+  }
+}

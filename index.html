@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Festival de Fogo e Gelo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>
+          <i class="fas fa-fire" style="color: #ff4d4d"></i> Festival de Fogo e Gelo
+          <i class="fas fa-snowflake" style="color: #00ffd5"></i>
+        </h1>
+        <div class="divider"></div>
+      </div>
+
+      <p class="description">
+        Insira as pedras mágicas abaixo (números positivos para <span class="fire-text">fogo</span>, negativos para
+        <span class="ice-text">gelo</span>) separadas por vírgula. O objetivo é verificar se é possível escolher uma ou
+        mais pedras cuja soma seja zero, indicando o equilíbrio perfeito entre os elementos.
+        <span class="fire-text">🔥</span><span class="ice-text">🧊</span>
+      </p>
+
+      <div class="input-group">
+        <input type="text" id="stonesInput" placeholder="Ex: 3, -1, 1, 2, -2" />
+        <div class="input-hint"><i class="fas fa-info-circle"></i> Separe os números por vírgula</div>
+      </div>
+
+      <div class="button-group">
+        <button id="analyzeBtn" class="glow-on-hover">ANALISAR</button>
+        <button id="resetBtn" class="glow-on-hover">RETORNAR</button>
+      </div>
+
+      <div class="result-container">
+        <div class="result-header">
+          <h2><i class="fas fa-scroll"></i> Resultado</h2>
+          <div class="divider-small"></div>
+        </div>
+        <div id="resultOutput" class="result-output">
+          <div class="placeholder"><i class="fas fa-magic"></i> O resultado aparecerá aqui...</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
